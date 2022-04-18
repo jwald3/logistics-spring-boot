@@ -1,11 +1,19 @@
 package com.jwald.logisticplanning.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,78 +39,9 @@ public class Trip {
     @JoinColumn(name="destination_facility_id")
     private Facility destinationFacility;
 
-    public Trip() { }
-
     public Trip(String tripIdentifier, LocalDateTime startDate, LocalDateTime endDate) {
         this.tripIdentifier = tripIdentifier;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public Long getTripId() {
-        return tripId;
-    }
-
-    public void setTripId(Long id) {
-        this.tripId = id;
-    }
-
-    public String getTripIdentifier() {
-        return tripIdentifier;
-    }
-
-    public void setTripIdentifier(String tripIdentifier) {
-        this.tripIdentifier = tripIdentifier;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public Truck getTruck() {
-        return truck;
-    }
-
-    public void setTruck(Truck truck) {
-        this.truck = truck;
-    }
-
-    public Facility getOriginFacility() {
-        return originFacility;
-    }
-
-    public void setOriginFacility(Facility originFacility) {
-        this.originFacility = originFacility;
-    }
-
-    public Facility getDestinationFacility() {
-        return destinationFacility;
-    }
-
-    public void setDestinationFacility(Facility destinationFacility) {
-        this.destinationFacility = destinationFacility;
-    }
-
-    @Override
-    public String toString() {
-        return "Trip{" +
-                "tripId=" + tripId +
-                ", tripIdentifier='" + tripIdentifier + '\'' +
-                ", truck=" + truck +
-                ", originFacility=" + originFacility +
-                ", destinationFacility=" + destinationFacility +
-                '}';
     }
 }

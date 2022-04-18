@@ -1,11 +1,9 @@
 package com.jwald.logisticplanning.controller;
 
-import com.jwald.logisticplanning.domain.Trip;
 import com.jwald.logisticplanning.domain.Truck;
 import com.jwald.logisticplanning.repository.TruckRepository;
 import com.jwald.logisticplanning.services.TruckService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

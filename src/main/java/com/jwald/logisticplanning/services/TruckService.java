@@ -6,7 +6,6 @@ import com.jwald.logisticplanning.exception.BadRequestException;
 import com.jwald.logisticplanning.exception.ResourceNotFoundException;
 import com.jwald.logisticplanning.repository.TruckRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class TruckService {
 
-    @Autowired
     private final TruckRepository truckRepository;
 
     public List<Truck> getAllTrucks() {
@@ -53,15 +51,12 @@ public class TruckService {
 
         Truck truck = this.getTruckById(truckId);
 
-        if (truck.getTrips().isEmpty()) {
+        if (!truck.getTrips().isEmpty()) {
             for (Trip trip: truck.getTrips()) {
                 trip.setTruck(null);
             }
 
-            truckRepository.deleteById(truckId);
         }
-
-
         truckRepository.deleteById(truckId);
     }
 
