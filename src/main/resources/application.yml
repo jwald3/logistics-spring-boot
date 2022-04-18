@@ -2,17 +2,19 @@ server:
   error:
     include-message: always
     include-binding-errors: always
+  port:
+    5000
 
 spring:
   datasource:
-    password: Tonka34*
-    url: jdbc:postgresql://localhost:5432/logistics
-    username: postgres
+    password: password
+    url: jdbc:mysql://logistics.cwdngy7tu1w9.us-east-1.rds.amazonaws.com:3306/logistics
+    username: root
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
     show-sql: true

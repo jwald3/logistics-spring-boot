@@ -26,7 +26,7 @@ public class TripService {
             );
         }
 
-        return tripRepository.getById(tripId);
+        return tripRepository.findById(tripId).get();
     }
 
     public Trip addTrip(Trip trip) {
@@ -58,7 +58,7 @@ public class TripService {
             );
         }
 
-        Trip currentTrip = tripRepository.getById(tripId);
+        Trip currentTrip = tripRepository.findById(tripId).get();
 
         currentTrip.setTripIdentifier(trip.getTripIdentifier());
         currentTrip.setStartDate(trip.getStartDate());

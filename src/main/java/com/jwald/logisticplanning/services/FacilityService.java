@@ -58,7 +58,7 @@ public class FacilityService {
             );
         }
 
-        Facility currentFacility = facilityRepository.getById(facilityId);
+        Facility currentFacility = facilityRepository.findById(facilityId).get();
         currentFacility.setName(facility.getName());
         currentFacility.setAddress(facility.getAddress());
         currentFacility.setCity(facility.getCity());
